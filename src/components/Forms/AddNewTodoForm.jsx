@@ -6,7 +6,7 @@ import Paper from "@mui/material/Paper";
 import AddIcon from "@mui/icons-material/Add";
 import Fab from "@mui/material/Fab";
 
-import { addItem } from "../store/features/todo.feature";
+import { addItem } from "../../store/features/todo.feature";
 
 export default function AddNewTodoForm() {
   const [inputValue, setInputValue] = useState("");
@@ -38,7 +38,7 @@ export default function AddNewTodoForm() {
         },
         gap: "1rem",
         margin: "1rem",
-        maxHeight: "80px",
+        maxHeight: "100px",
       }}
     >
       <form

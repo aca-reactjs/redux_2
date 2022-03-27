@@ -26,7 +26,7 @@ const { reducer } = createSlice({
   name: "dog",
   initialState,
   extraReducers: (builder) => {
-    builder.addCase(fetchRandomDog.pending, (state, action) => {
+    builder.addCase(fetchRandomDog.pending, (state) => {
       state.status = "loading";
     });
 
@@ -37,7 +37,6 @@ const { reducer } = createSlice({
     });
 
     builder.addCase(fetchRandomDog.rejected, (state, action) => {
-      console.log(`🐞 / builder.addCase / action`, action);
       state.status = "error";
 
       state.error = action.error;

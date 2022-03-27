@@ -1,6 +1,6 @@
 import { Button } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchRandomDog, selectDog } from "../store/features/dog.feature";
+import { fetchRandomDog, selectDog } from "../../store/features/dog.feature";
 import CircularProgress from "@mui/material/CircularProgress";
 
 export default function RandomDog() {

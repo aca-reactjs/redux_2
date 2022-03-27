@@ -1,10 +1,10 @@
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { green, orange } from "@mui/material/colors";
 
-import AddNewTodoForm from "./components/AddNewTodoForm";
-import TodoList from "./components/TodoList";
+import AddNewTodoForm from "./components/Forms/AddNewTodoForm";
+import Todo from "./components/Todo/Todo";
 import { Box } from "@mui/material";
-import RandomDog from "./components/RandomDog";
+import RandomDog from "./components/RandomDog/RandomDog";
 
 const outerTheme = createTheme({
   palette: {
@@ -19,18 +19,21 @@ const outerTheme = createTheme({
 
 function App() {
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexWrap: "wrap",
-      }}
-    >
-      <ThemeProvider theme={outerTheme}>
-        <TodoList />
-        <AddNewTodoForm />
+    <ThemeProvider theme={outerTheme}>
+      <div>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            flexWrap: "wrap",
+          }}
+        >
+          <AddNewTodoForm />
+          <Todo />
+        </Box>
         <RandomDog />
-      </ThemeProvider>
-    </Box>
+      </div>
+    </ThemeProvider>
   );
 }
 

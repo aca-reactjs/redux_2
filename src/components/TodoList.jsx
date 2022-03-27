@@ -6,19 +6,17 @@ export default function TodoList() {
   const todoItems = useSelector((state) => state.todo.items);
 
   return (
-    <div>
-      <Wrapper direction="column">
-        <Typography variant="h5" component="h2">
-          Todo List
-        </Typography>
-        <List>
-          {todoItems.map((item) => (
-            <ListItem key={item.id}>
-              <ListItemText primary={item.text} />
-            </ListItem>
-          ))}
-        </List>
-      </Wrapper>
-    </div>
+    <Wrapper direction="column">
+      <Typography variant="h5" component="h2">
+        Todo List
+      </Typography>
+      <List sx={{ width: "100%" }}>
+        {todoItems.map((item) => (
+          <ListItem key={item.id}>
+            <ListItemText primary={item.text} />
+          </ListItem>
+        ))}
+      </List>
+    </Wrapper>
   );
 }

@@ -3,6 +3,7 @@ import { green, orange } from "@mui/material/colors";
 
 import AddNewTodoForm from "./components/AddNewTodoForm";
 import TodoList from "./components/TodoList";
+import { Box } from "@mui/material";
 
 const outerTheme = createTheme({
   palette: {
@@ -17,12 +18,17 @@ const outerTheme = createTheme({
 
 function App() {
   return (
-    <div className="App">
+    <Box
+      sx={{
+        display: "flex",
+        flexWrap: "wrap",
+      }}
+    >
       <ThemeProvider theme={outerTheme}>
-        <AddNewTodoForm />
         <TodoList />
+        <AddNewTodoForm />
       </ThemeProvider>
-    </div>
+    </Box>
   );
 }
 

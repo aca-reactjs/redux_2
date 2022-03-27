@@ -6,7 +6,6 @@ import Paper from "@mui/material/Paper";
 import AddIcon from "@mui/icons-material/Add";
 import Fab from "@mui/material/Fab";
 import { addItem } from "../store/features/todo.feature";
-import Wrapper from "./Wrapper";
 
 export default function AddNewTodoForm() {
   const [inputValue, setInputValue] = useState("");
@@ -19,12 +18,28 @@ export default function AddNewTodoForm() {
   const handleFormSubmit = (event) => {
     event.preventDefault();
 
+    if (!inputValue.trim()) {
+      return;
+    }
+
     dispatch(addItem({ text: inputValue }));
     setInputValue("");
   };
 
   return (
-    <Wrapper>
+    <Paper
+      elevation={3}
+      sx={{
+        padding: "1rem",
+        width: {
+          xs: "100%",
+          md: "400px",
+        },
+        gap: "1rem",
+        margin: "1rem",
+        maxHeight: "80px",
+      }}
+    >
       <form
         onSubmit={handleFormSubmit}
         style={{
@@ -35,10 +50,10 @@ export default function AddNewTodoForm() {
         }}
       >
         <TextField value={inputValue} onChange={handleInputChange} />
-        <Fab color="primary" aria-label="add">
+        <Fab type="submit" color="primary" aria-label="add">
           <AddIcon />
         </Fab>
       </form>
-    </Wrapper>
+    </Paper>
   );
 }

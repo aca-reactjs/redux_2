@@ -5,12 +5,18 @@ import {
   ListItemText,
   Typography,
 } from "@mui/material";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Wrapper from "./Wrapper";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { removeItem } from "../store/features/todo.feature";
 
 export default function TodoList() {
   const todoItems = useSelector((state) => state.todo.items);
+  const dispatch = useDispatch();
+
+  const handleDelete = (id) => () => {
+    dispatch(removeItem({ id }));
+  };
 
   return (
     <Wrapper direction="column">
@@ -22,7 +28,11 @@ export default function TodoList() {
           <ListItem
             key={item.id}
             secondaryAction={
-              <IconButton edge="end" aria-label="delete">
+              <IconButton
+                edge="end"
+                aria-label="delete"
+                onClick={handleDelete(item.id)}
+              >
                 <DeleteIcon />
               </IconButton>
             }

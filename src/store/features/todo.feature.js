@@ -11,8 +11,12 @@ const { actions, reducer } = createSlice({
     addItem: (state, { payload }) => {
       state.items.push({ ...payload, id: nanoid() });
     },
+    removeItem: (state, { payload }) => {
+      const newItems = state.items.filter((item) => item.id !== payload.id);
+      state.items = newItems;
+    },
   },
 });
 
-export const { addItem } = actions;
+export const { addItem, removeItem } = actions;
 export default reducer;

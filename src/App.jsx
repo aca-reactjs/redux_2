@@ -4,6 +4,7 @@ import { green, orange } from "@mui/material/colors";
 import AddNewTodoForm from "./components/AddNewTodoForm";
 import TodoList from "./components/TodoList";
 import { Box } from "@mui/material";
+import RandomDog from "./components/RandomDog";
 
 const outerTheme = createTheme({
   palette: {
@@ -27,6 +28,7 @@ function App() {
       <ThemeProvider theme={outerTheme}>
         <TodoList />
         <AddNewTodoForm />
+        <RandomDog />
       </ThemeProvider>
     </Box>
   );
